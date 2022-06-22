@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 const QUERY = gql`
   query getSongs {
     songs {
+      id
       title
     }
   }
@@ -20,10 +21,10 @@ const SongList = () => {
   return (
     <div>
       <h2>SongList</h2>
-      {data.songs.map(({ title }) => (
-        <div>
+      {data.songs.map(({ title, id }) => (
+        <li key={id}>
           <h4>{title}</h4>
-        </div>
+        </li>
       ))}
     </div>
   );
